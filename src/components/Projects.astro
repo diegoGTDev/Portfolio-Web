@@ -1,0 +1,86 @@
+---
+import AngularIcon from "../../src/components/icons/AngularIcon.astro"
+import TypeScriptIcon from "../../src/components/icons/TypeScriptIcon.astro"
+import CSharpIcon from "../../src/components/icons/CSharpIcon.astro"
+import GithubIcon from "./icons/GithubIcon.astro"
+import PythonIcon from "./icons/PythonIcon.astro"
+
+const TAGS = {
+    ANGULAR: {
+        name: "Angular",
+        class: "bg-red-900",
+        icon: AngularIcon
+    },
+    TYPESCRIPT: {
+        name: "TypeScript",
+        class: "bg-blue-500",
+        icon: TypeScriptIcon
+    },
+    CSHARP: {
+        name: "C#",
+        class: "bg-purple-500",
+        icon: CSharpIcon
+
+    },
+    PYTHON: {
+        name: "Python",
+        class: "bg-blue-500/30",
+        icon: PythonIcon
+    },
+    GITHUB: {
+        name: "GitHub",
+        class: "bg-black",
+        icon: GithubIcon
+    }
+}
+const PROJECTS = [
+    {
+        title: "Gestor de bodega empresarial",
+        description: "Aplicación web para llevar el control de los insumos de una bodega, cuenta con cifrado de contraseñas, gestión de usuarios y roles, y un panel de administración.",
+        link: "",
+        github: "https://github.com/diegoGTDev/Supplies-warehouse",
+        image: "../../public/projects/bodega.webp",
+        tags: [TAGS.ANGULAR, TAGS.TYPESCRIPT, TAGS.CSHARP]
+    },
+    {
+        title: "Organizaor de archivos",
+        description: "Aplicación de escritorio para organizar archivos en carpetas, cuenta con un sistema de búsqueda y un panel de administración.",
+        link: "",
+        github: "",
+        image:"../../public/projects/FilesOrganizer.webp",
+        tags: [TAGS.PYTHON]
+    },
+    {
+        title: "Administrador de Gimnasio",
+        description: "Aplicación web para llevar el control de los clientes de un gimnasio, cuenta con un sistema de pagos, gestión de usuarios y roles, y un panel de administración.",
+        link: "",
+        github: "",
+        image: "../../public/projects/gimnasio.webp",
+        tags: [TAGS.CSHARP]
+
+    }
+]
+
+---
+{
+    PROJECTS.map(({title, description, tags, image, link, github}) => (
+        <article class="mb-11">
+            <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+            <p class="text-lg mb-4 text-pretty">{description}</p>
+        
+            <ul class="flex flex-row gap-x-2 mb-2">
+                {tags.map((tag) => (
+                    <li>
+                        <span class={`flex gap-x-2 rounded-full text-xs py-1 px-2 ${tag.class}`}>
+                            <tag.icon class="size-4" />
+                            {tag.name}
+                        </span>
+                    </li>
+                ))}
+            </ul>
+            <img class="rounded shadow-2xl shadow-white/10"
+            src={image} 
+            alt=`Captura de pantalla del proyecto ${image}`>
+        </article>
+        ))
+}

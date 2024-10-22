@@ -2,16 +2,24 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Badge from "../components/Badge.astro";
-import Github from "../components/icons/Github.astro";
-import LinkedIn from "../components/icons/LinkedIn.astro";
+import GithubIcon from "../components/icons/GithubIcon.astro";
+import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
 import { DevToolbarBadge } from "astro/runtime/client/dev-toolbar/ui-library/badge.js";
+import SocialPill from "../components/SocialPill.astro";
+import MailIcon from "../components/icons/MailIcon.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Projects from "../components/Projects.astro";
+import AboutIcon from "../components/icons/AboutIcon.astro";
+import CodeIcon from "../components/icons/CodeIcon.astro";
+import SendIcon from "../components/icons/SendIcon.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
-    <section class="w-full lg:w-[740px] mx-auto py-44">
-      <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
-        Hey, soy midudev<a
+<Layout title="Portfolio de Diego - Desarrollador y Programador Web" description="Contrata a Diego para crear tu aplicación web. Desarrollador Web especializado en crear aplicaciones únicas ">
+  <main class="px-4">
+    <!-- Sección principal -->
+    <SectionContainer class="py-44 pb-32" id="top">
+      <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-4">
+        Hey, soy Diego<a
           href="https://www.linkedin.com/in/diego-l%C3%B3pez-83773a270/"
           target="_blank"
           rel="noopener"
@@ -20,20 +28,55 @@ import { DevToolbarBadge } from "astro/runtime/client/dev-toolbar/ui-library/bad
           <Badge>Disponible para trabajar</Badge>
         </a>
       </h1>
-      <h2 class="text-2xl text-wrap">
+      <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
         Desarrollador Web.<span class="text-blue-500"> De Guatemala.</span><span
           class="opacity-80"
         >
           Especializado en crear aplicaciones únicas</span
         >
       </h2>
-      <ul>
-        <li><a href="https://github.com/diegoGTDev"></a></li>
-        <li>
-          <a href="https://www.linkedin.com/in/diego-l%C3%B3pez-83773a270/"
-            >Linkdn</a>
-        </li>
-      </ul>
-    </section>
+      <nav class="flex gap-4 mt-8 flex-wrap">
+        <SocialPill href="https://github.com/diegoGTDev">
+          <GithubIcon class="md:size-6 size-4" />GitHub
+        </SocialPill>
+        <SocialPill
+          href="https://www.linkedin.com/in/diego-l%C3%B3pez-83773a270/"
+        >
+          <LinkedInIcon class="md:size-6 size-4" />LinkedIn
+        </SocialPill>
+        
+        <SocialPill
+          href="https://www.linkedin.com/in/diego-l%C3%B3pez-83773a270/"
+        >
+          <MailIcon class="size-4 md:size-6" />andreelopez334@gmail.com
+        </SocialPill>
+        
+      </nav>
+    </SectionContainer>
+    <!-- Sección sobre mí -->
+    <SectionContainer class="" id="about">
+      <h2 class="text-3xl font-bold pb-4 flex items-center gap-x-3"><AboutIcon class="size-7"/>Sobre mí</h2>
+      <article class="flex flex-col justify-center gap-8 text-gray-300 md:flex-row">
+        <div class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty">
+          <p></p>
+          <p class="text-lg max-w-[700px]">
+            Soy un desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles. Me
+            especializo en crear aplicaciones únicas y personalizadas para cada cliente. Mi objetivo es
+            ayudarte a llevar tu idea al siguiente nivel y hacerla realidad.
+          </p>
+        </div>
+        <img class="size-72 object-scale-down rotate-[15deg]" src="../../public/diego.webp" alt="Imagen de Diego">
+      </article>
+    </SectionContainer>
+    <!-- Sección de proyectos -->
+    <SectionContainer id="projects">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <CodeIcon class="size-7"/>
+        Proyectos
+      </h2>
+      <Projects>
+        
+      </Projects>
+    </SectionContainer>
   </main>
 </Layout>
